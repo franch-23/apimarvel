@@ -1,10 +1,9 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
-  </div>
-  <button type="button" (click)="goBack()">go back</button>
-  <button type="button" (click)="save()">save</button>
-</div>
+<ul *ngFor="let heros of heroes">
+  <li>{{heros.id}}</li>
+  <li>{{heros.name}}</li>
+  <li>
+    <img src="{{heros.thumbnail.path}}.{{heros.thumbnail.extension}}" style="height:150px">
+
+  </li>
+  <li>{{heros.description}}</li>
+</ul>

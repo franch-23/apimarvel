@@ -9,7 +9,7 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroes: any[] = [];
 
   constructor(private heroService: HeroService) { }
 
@@ -18,9 +18,18 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    this.heroService.getHeroes().subscribe( res => {
+      console.log(res);
+      this.heroes=res.data.results;
+       
+    });
+  
+  }
+
+  /*getHeroes(): void {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);
-  }
+  }*/
 
   add(name: string): void {
     name = name.trim();
@@ -37,3 +46,6 @@ export class HeroesComponent implements OnInit {
   }
 
 }
+
+
+
