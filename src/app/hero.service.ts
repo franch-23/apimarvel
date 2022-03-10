@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  public offset:number=Math.round(Math.random());
+  public offset:number=Math.round(Math.random()*100);
 // URL to web api
   private heroesUrl = 'https://gateway.marvel.com:443/v1/public/characters?ts=fran&apikey=6f6f56128c081930de870dcc5c519fb4&hash=5cf8caadb181824ab53092e373c5d5a7&offset='+this.offset+'$limit=20';
 
@@ -24,7 +24,11 @@ export class HeroService {
     public http: HttpClient,
     private messageService: MessageService) { }
     
-
+    getNext():void{
+      this.offset=this.offset+20;
+      this.getHeroes
+      console.log("yeee")
+    }
 
   /** GET heroes from the server */
   getHeroes() {
