@@ -27,9 +27,10 @@ export class HeroService {
     getNext():void{
       this.offset=this.offset+20;
       this.getHeroes
-      console.log("yeee")
     }
-
+    public setOffset(size: number){
+      this.offset= size;
+    }
   /** GET heroes from the server */
   getHeroes() {
     return this.http.get(this.heroesUrl).pipe(
@@ -48,6 +49,8 @@ export class HeroService {
       })
       );
   }
+
+  
   
 
   /** GET hero by id. Return `undefined` when id not found */

@@ -17,11 +17,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  getNext():void{
-   // HeroService=this.offset+20;
-    this.getHeroes
-  }
-
+  
   getHeroes(): void {
     this.heroService.getHeroes().subscribe( res => {
       console.log(res);
